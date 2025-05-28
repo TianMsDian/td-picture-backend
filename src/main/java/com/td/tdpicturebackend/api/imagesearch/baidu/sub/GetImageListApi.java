@@ -1,10 +1,10 @@
-package com.td.tdpicturebackend.api.imagesearch.sub;
+package com.td.tdpicturebackend.api.imagesearch.baidu.sub;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.td.tdpicturebackend.api.imagesearch.model.ImageSearchResult;
+import com.td.tdpicturebackend.api.imagesearch.baidu.model.ImageSearchResult;
 import com.td.tdpicturebackend.exception.BusinessException;
 import com.td.tdpicturebackend.exception.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
@@ -66,7 +66,8 @@ public class GetImageListApi {
     }
 
     public static void main(String[] args) {
-        String url = "https://graph.baidu.com/ajax/pcsimi?carousel=503&entrance=GENERAL&extUiData%5BisLogoShow%5D=1&inspire=general_pc&limit=30&next=2&render_type=card&session_id=16250747570487381669&sign=1265ce97cd54acd88139901733452612&tk=4caaa&tpl_from=pc";
+        // String url = "https://graph.baidu.com/ajax/pcsimi?carousel=503&entrance=GENERAL&extUiData%5BisLogoShow%5D=1&inspire=general_pc&limit=30&next=2&render_type=card&session_id=16250747570487381669&sign=1265ce97cd54acd88139901733452612&tk=4caaa&tpl_from=pc";
+        String url = "https://graph.baidu.com/s?card_key=&entrance=GENERAL&extUiData[isLogoShow]=1&f=all&isLogoShow=1&session_id=6634694125605976996&sign=126a6e97cd54acd88139901748420456&tpl_from=pc";
         List<ImageSearchResult> imageList = getImageList(url);
         System.out.println("搜索成功" + imageList);
     }

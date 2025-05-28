@@ -1,4 +1,4 @@
-package com.td.tdpicturebackend.api.imagesearch.sub;
+package com.td.tdpicturebackend.api.imagesearch.baidu.sub;
 
 import com.td.tdpicturebackend.exception.BusinessException;
 import com.td.tdpicturebackend.exception.ErrorCode;
@@ -62,6 +62,7 @@ public class GetImageFirstUrlApi {
     public static void main(String[] args) {
         // 请求目标 URL
         String url = "https://graph.baidu.com/s?card_key=&entrance=GENERAL&extUiData[isLogoShow]=1&f=all&isLogoShow=1&session_id=16250747570487381669&sign=1265ce97cd54acd88139901733452612&tpl_from=pc";
+        // https://graph.baidu.com/s?card_key=&entrance=GENERAL&extUiData[isLogoShow]=1&f=all&isLogoShow=1&session_id=6634694125605976996&sign=126a6e97cd54acd88139901748420456&tpl_from=pc
         // String url = "https://photo.16pic.com/00/88/04/16pic_8804697_b.jpg" ;
         String imageFirstUrl = getImageFirstUrl(url);
         System.out.println("搜索成功，结果 URL：" + imageFirstUrl);

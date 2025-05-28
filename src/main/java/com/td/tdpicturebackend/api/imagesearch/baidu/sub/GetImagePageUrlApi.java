@@ -1,4 +1,4 @@
-package com.td.tdpicturebackend.api.imagesearch.sub;
+package com.td.tdpicturebackend.api.imagesearch.baidu.sub;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
@@ -48,8 +48,6 @@ public class GetImagePageUrlApi {
             // 2. 发送请求
             HttpResponse httpResponse = HttpRequest.post(url)
                     .form(formData)
-                    .form("tn", "pc")
-                    .form("from", "pc")
                     .header("Acs-Token", acsToken)
                     .form("image_source", "PC_UPLOAD_FILE")
                     // .form("image", new java.io.File(localImagePath))
@@ -81,6 +79,8 @@ public class GetImagePageUrlApi {
             throw new BusinessException(ErrorCode.OPERATION_ERROR, "搜索失败");
         }
     }
+
+
 
     public static void  main(String[] args){
         // 测试以图搜图功能

@@ -1,4 +1,4 @@
-package com.td.tdpicturebackend.api.imagesearch.model;
+package com.td.tdpicturebackend.api.imagesearch.baidu.model;
 
 import lombok.Data;
 

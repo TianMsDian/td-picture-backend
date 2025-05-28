@@ -91,6 +91,7 @@ public abstract class PictureUploadTemplate {
      * @param originalFilename 原始文件名
      * @param compressedCiObject 压缩后的对象
      * @param thumbnailCiObject 缩略图对象
+     * @param imageInfo  对象存储返回的图片信息
      * @return
      */
     private UploadPictureResult buildResult(String originalFilename, CIObject compressedCiObject,
@@ -152,6 +153,7 @@ public abstract class PictureUploadTemplate {
         uploadPictureResult.setPicHeight(picHeight);
         uploadPictureResult.setPicScale(picScale);
         uploadPictureResult.setPicFormat(imageInfo.getFormat());
+        uploadPictureResult.setPicColor(imageInfo.getAve());
         //返回可访问的地址
         return uploadPictureResult;
     }

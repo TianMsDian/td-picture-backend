@@ -1,9 +1,9 @@
 package com.td.tdpicturebackend.api.imagesearch;
 
-import com.td.tdpicturebackend.api.imagesearch.model.ImageSearchResult;
-import com.td.tdpicturebackend.api.imagesearch.sub.GetImageFirstUrlApi;
-import com.td.tdpicturebackend.api.imagesearch.sub.GetImageListApi;
-import com.td.tdpicturebackend.api.imagesearch.sub.GetImagePageUrlApi;
+import com.td.tdpicturebackend.api.imagesearch.baidu.model.ImageSearchResult;
+import com.td.tdpicturebackend.api.imagesearch.baidu.sub.GetImageFirstUrlApi;
+import com.td.tdpicturebackend.api.imagesearch.baidu.sub.GetImageListApi;
+import com.td.tdpicturebackend.api.imagesearch.baidu.sub.GetImagePageUrlApi;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
