@@ -119,7 +119,7 @@ public interface PictureService extends IService<Picture> {
 
     /**
      * 校验空间图片的权限
-     *
+     * 。。。。。。。。。。。。。。这方法已弃用。。。。。。。。。。。。。。。
      * @param loginUser
      * @param picture
      */
