@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.td.tdpicturebackend.exception.BusinessException;
 import com.td.tdpicturebackend.exception.ErrorCode;
 import com.td.tdpicturebackend.exception.ThrowUtils;
+import com.td.tdpicturebackend.manager.sharding.DynamicShardingManager;
 import com.td.tdpicturebackend.mapper.SpaceMapper;
 import com.td.tdpicturebackend.model.dto.space.SpaceAddRequest;
 import com.td.tdpicturebackend.model.dto.space.SpaceQueryRequest;
@@ -24,6 +25,7 @@ import com.td.tdpicturebackend.service.SpaceService;
 import com.td.tdpicturebackend.service.SpaceUserService;
 import com.td.tdpicturebackend.service.UserService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
@@ -54,6 +56,11 @@ public class SpaceServiceImpl extends ServiceImpl<SpaceMapper, Space>
     // 编程式事务管理器
     @Resource
     private TransactionTemplate transactionTemplate;
+
+    // 为了方便部署，注释掉分表 不想用了就注释
+   // @Resource
+   // @Lazy
+   // private DynamicShardingManager dynamicShardingManager;
 
     /**
      * 创建空间
@@ -110,6 +117,9 @@ public class SpaceServiceImpl extends ServiceImpl<SpaceMapper, Space>
                    result = spaceUserService.save(spaceUser);
                    ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR, "创建团队成员记录失败");
                }
+               // 创建分表 (仅对团队空间生效) 不想用了就注释
+               // dynamicShardingManager.createSpacePictureTable(space);
+               //返回新写入的数据 id
                 return space.getId();
             });
             return Optional.ofNullable(newSpaceId).orElse(-1L);

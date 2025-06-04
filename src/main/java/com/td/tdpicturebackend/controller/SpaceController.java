@@ -9,6 +9,7 @@ import com.td.tdpicturebackend.constant.UserConstant;
 import com.td.tdpicturebackend.exception.BusinessException;
 import com.td.tdpicturebackend.exception.ErrorCode;
 import com.td.tdpicturebackend.exception.ThrowUtils;
+import com.td.tdpicturebackend.manager.auth.SpaceUserAuthManager;
 import com.td.tdpicturebackend.model.dto.space.*;
 import com.td.tdpicturebackend.model.entity.Space;
 import com.td.tdpicturebackend.model.entity.User;
@@ -38,8 +39,8 @@ public class SpaceController {
     @Resource
     private SpaceService spaceService;
 
-    // @Resource
-    // private SpaceUserAuthManager spaceUserAuthManager;
+    @Resource
+    private SpaceUserAuthManager spaceUserAuthManager;
 
 
     @PostMapping("/add")
@@ -124,9 +125,9 @@ public class SpaceController {
         Space space = spaceService.getById(id);
         ThrowUtils.throwIf(space == null, ErrorCode.NOT_FOUND_ERROR);
         SpaceVO spaceVO = spaceService.getSpaceVO(space, request);
-        // User loginUser = userService.getLoginUser(request);
-        // List<String> permissionList = spaceUserAuthManager.getPermissionList(space, loginUser);
-        // spaceVO.setPermissionList(permissionList);
+        User loginUser = userService.getLoginUser(request);
+        List<String> permissionList = spaceUserAuthManager.getPermissionList(space, loginUser);
+        spaceVO.setPermissionList(permissionList);
         // 获取封装类
         return ResultUtils.success(spaceVO);
     }
