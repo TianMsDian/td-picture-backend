@@ -15,6 +15,7 @@ public class MainController {
 
     @RequestMapping("/health")
     public BaseResponse<String>  health(){
+
         return ResultUtils.success("ok");
     }
 
